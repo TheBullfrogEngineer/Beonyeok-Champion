@@ -11,6 +11,7 @@ height = 1.2
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1360601199]
 script = ExtResource("1_fyfka")
+free_look_tilt = 8.0
 
 [node name="StandingCollision" type="CollisionShape3D" parent="Player" unique_id=912691173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -21,10 +22,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6235323, 0)
 shape = SubResource("CapsuleShape3D_fyfka")
 disabled = true
 
-[node name="Head" type="Node3D" parent="Player" unique_id=340180954]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/Head" unique_id=1399012568]
-
 [node name="RayCast3D" type="RayCast3D" parent="Player" unique_id=1004884200]
 target_position = Vector3(0, 2, 0)
+
+[node name="Neck" type="Node3D" parent="Player" unique_id=378298536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Head" type="Node3D" parent="Player/Neck" unique_id=340180954]
+
+[node name="Eyes" type="Node3D" parent="Player/Neck/Head" unique_id=1795802283]
+
+[node name="Camera3D" type="Camera3D" parent="Player/Neck/Head/Eyes" unique_id=1399012568]
